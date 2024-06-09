@@ -42,7 +42,7 @@ void init(int G[20][20], int numVertice)
 
 int solve(int pos, int mask, int n, int start) 
 {
-    if (mask == (1 << n) - 1)
+    if (__builtin_popcount(mask) == n)
     {
         parent[pos][mask] = start;
         return dist[pos][start]; 
