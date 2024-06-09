@@ -1,4 +1,5 @@
 #include "tsm.h"
+#include<bitset>
 const int INF = 1e9;
 const int MAXN = 20;
 
@@ -84,18 +85,17 @@ string Traveling(int G[20][20], int n, char start)
     string path = "";
     path.push_back(numToChar(pos));
     path += " ";
-    
+    cout << "parent[" << pos << "][" << bitset<14>(mask) << "] :  " << parent[pos][mask] << endl; 
     do
     {
         pos = parent[pos][mask];
         mask = mask | (1 << pos);
-        
+        cout << "parent[" << pos << "][" << bitset<14>(mask) << "] :  " << parent[pos][mask] << endl;
         path.push_back(numToChar(pos));
         path += " ";
     
     }
     while (mask != (1 << n) - 1); 
-
     path.push_back(numToChar(startIdx));
     return path;
 }

@@ -55,7 +55,6 @@ void testBF(int G[][20])
         cout << endl;
     }
     char goal = char((int) distrib(gen));
-
     cout << endl;
     cout << "Shortest path from " << start << ' ' << "to " << goal << " :"<< endl;
     cout << BF_Path(G, MAXN, start,goal) << endl;
@@ -69,9 +68,9 @@ void testTSP(int G[20][20])
     mt19937 gen(rd());
     uniform_int_distribution<> distrib(65,65 + MAXN - 1);
     char start = char((int) distrib(gen));
-    string path = Traveling(G,MAXN,'A');
+    string path = Traveling(G,MAXN,start);
     cout << "The Optimal Path is: " << path << endl;
-    cout << "Minimum Cost is: " << minCost(path,'A',G);
+    cout << "Minimum Cost is: " << minCost(path,start,G);
 }
 int main()
 {
